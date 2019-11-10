@@ -11,4 +11,8 @@ Image example:
 
 Mask example:
 
-![Mask](images/mask.png?raw "Mask - Ground Truth")
+![Mask](images/mask.png "Mask - Ground Truth")
+
+Output:
+
+![Output](images/output.png "Output")
