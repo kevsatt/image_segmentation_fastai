@@ -15,4 +15,4 @@ Mask example:
 
 Output:
 
-![Output](images/output.png "Output")
+![Output](images/output.PNG "Output")
