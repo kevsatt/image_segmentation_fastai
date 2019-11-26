@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Eyeball Image Segmentation</title>
+<h1>Eyeball Image Segmentation</h1>
+<p><i>Please upload a picture of a close-up of an eye</i></p>
+<h3>Upload image of eye</h3>
+<form action="" method=post enctype=multipart/form-data onsubmit="return submitForm(this);">
+    <p><input type=file name=file accept='image/*']></p>
+    <h3>Submit</h3>
+    <p><input type="submit" id="button" value=Submit></p>
+</form>
+<script type="text/javascript">
+    function submitForm(form) {
+        form.button.disabled = true;
+        form.button.value = "Please wait...";
+    }
+</script>
