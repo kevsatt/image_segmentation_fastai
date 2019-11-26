@@ -9,10 +9,9 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/uc?export=downloads&id=1-1Xvv1DUINP0AkpFHoSjzs4hYDFYqLzm'
+export_file_name = 'unet_eye_seg_model.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -60,8 +59,13 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    outputs = learn.predict(img)
+    im = image2np(outputs[2].sigmoid())
+    resp_bytes = BytesIO()
+    PIL.Image.fromarray((im * 255).astype('uint8')).save(resp_bytes, format='png')
+    img_str = base64.b64encode(resp_bytes.getvalue()).decode()
+    img_str = "data:image/png;base64," + img_str
+    return Response(img_str)
 
 
 if __name__ == '__main__':
