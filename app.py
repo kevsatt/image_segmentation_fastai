@@ -17,16 +17,15 @@ def acc_image_seg(input, target):
     mask = target != void_code
     return (input.argmax(dim=1)[mask] == target[mask]).float().mean()
 
-learn = load_learner(Path(), 'unet_eye_seg_model.pkl')
+learn = load_learner(Path("/Users/kevinsattakun/PycharmProjects/image_segmentation_fastai"), 'unet_eye_seg_model.pkl')
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """REST endpoint for serving upload form then calling Justin's code"""
     if request.method == 'GET':
         """First, serving input form as a webpage"""
-        return render_template('index.html')
+        return render_template("index.html")
     else:
         """Otherwise this is a POST to call the imported function"""
         print(request.files['file'])
@@ -42,7 +41,8 @@ def index():
             mask.save('temp.png')
             mask_output = cv2.imread('temp.png')
             test = cv2.cvtColor(mask_output, cv2.COLOR_BGR2RGB)
-            test2.save('test.png')
+            print(test)
+            # test.save('test.png')
             return send_file('test.png', mimetype='image/gif')
         except Exception as e:
             traceback.print_exc()
