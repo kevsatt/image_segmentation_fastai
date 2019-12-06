@@ -13,7 +13,7 @@ Image example:
 
 Mask example:
 
-![Mask](images/output.png "Mask - Ground Truth")
+![Mask](images/mask.png "Mask - Ground Truth")
 
 Output:
 
