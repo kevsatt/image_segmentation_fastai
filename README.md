@@ -9,14 +9,14 @@ Accuracy calculation was done by comparing the number of pixels between the grou
 
 <p align="center">
 Image example:
-
+<br><br>
 <img src="images/eye.png" height="300" width="300">
 
 Mask example:
-
+<br><br>
 <img src="images/mask.png" height="300" width="300">
 
 Output:
-
+<br><br>
 ![Output](images/output.PNG "Output")
 </p>
