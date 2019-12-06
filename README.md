@@ -9,6 +9,7 @@ Accuracy calculation was done by comparing the number of pixels between the grou
 
 Image example:
 
+<img src="images/eye.png" height="200" width="300">
 ![Image](images/eye.png "Training Image"){:height="200px" width="200px"}
 
 Mask example:
