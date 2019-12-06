@@ -7,14 +7,16 @@ Accuracy: Achieved 95.7% accuracy.
 
 Accuracy calculation was done by comparing the number of pixels between the ground truth and the predicted mask (ignoring the background).
 
+<p align="center">
 Image example:
 
-<img src="images/eye.png" height="220" width="300">
+<img src="images/eye.png" height="300" width="300">
 
 Mask example:
 
-<img src="images/mask.png" height="220" width="300">
+<img src="images/mask.png" height="300" width="300">
 
 Output:
 
 ![Output](images/output.PNG "Output")
+</p>
