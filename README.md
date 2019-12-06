@@ -20,5 +20,5 @@ Mask example:
 <p align="center">
 Output:
 <br><br>
-![Output](images/output.PNG "Output")
+<img src="images/output.png" height="450" width="450">
 </p>
