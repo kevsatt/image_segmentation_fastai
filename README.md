@@ -12,13 +12,15 @@ Image example:
 <br><br>
 <img src="images/eye.png" height="300" width="300">
   </p>
+  
 <p align="center">
 Mask example:
 <br><br>
 <img src="images/mask.png" height="300" width="300">
- </p
+ </p>
+ 
 <p align="center">
 Output:
 <br><br>
-<img src="images/output.png" height="450" width="450">
+<img src="images/output.PNG" height="450" width="450">
 </p>
