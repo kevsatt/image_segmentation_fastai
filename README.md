@@ -9,11 +9,11 @@ Accuracy calculation was done by comparing the number of pixels between the grou
 
 Image example:
 
-![Image](images/eye.png "Training Image")
+![Image](images/eye.png "Training Image"){:height="200px" width="200px"}
 
 Mask example:
 
-![Mask](images/mask.png "Mask - Ground Truth")
+![Mask](images/mask.png "Mask - Ground Truth"){:height="200px" width="200px"}
 
 Output:
 
