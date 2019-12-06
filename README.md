@@ -9,7 +9,7 @@ Accuracy calculation was done by comparing the number of pixels between the grou
 
 Image example:
 
-![Image](images/image.png "Training Image")
+![Image](images/eye.png "Training Image")
 
 Mask example:
 
