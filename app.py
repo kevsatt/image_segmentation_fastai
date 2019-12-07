@@ -1,9 +1,10 @@
-from flask import Flask, request, abort, render_template, send_file
+from flask import Flask, request, abort, render_template, render_template_string
 from fastai.vision import *
 from fastai.utils.mem import *
 from fastai.callbacks.hooks import *
 import cv2
 import traceback
+import mpld3
 
 class SegLabelListCustom(SegmentationLabelList):
     def open(self, fn): return open_mask(fn, convert_mode='L')
@@ -17,7 +18,11 @@ def acc_image_seg(input, target):
     mask = target != void_code
     return (input.argmax(dim=1)[mask] == target[mask]).float().mean()
 
-learn = load_learner(Path("/Users/kevinsattakun/PycharmProjects/image_segmentation_fastai"), 'unet_eye_seg_model.pkl')
+# for mac
+# learn = load_learner(Path("/Users/kevinsattakun/PycharmProjects/image_segmentation_fastai"), 'unet_eye_seg_model.pkl')
+
+#for pc
+learn = load_learner(Path(r'C:\Users\kevin\PycharmProjects\image_segmentation_fastai'), 'unet_eye_seg_model.pkl')
 
 app = Flask(__name__)
 
@@ -36,14 +41,9 @@ def index():
             # test = Image(data)
             img = open_image(filename, convert_mode='L')
             prediction = learn.predict(img)
-            # prediction[0].show(figsize=(5, 5))
-            mask = prediction[0]
-            mask.save('temp.png')
-            mask_output = cv2.imread('temp.png')
-            test = cv2.cvtColor(mask_output, cv2.COLOR_BGR2RGB)
-            print(test)
-            # test.save('test.png')
-            return send_file('test.png', mimetype='image/gif')
+            prediction[0].show(figsize=(5, 5))
+            fig = plt.gcf()
+            return render_template_string(mpld3.fig_to_html(fig))
         except Exception as e:
             traceback.print_exc()
             abort(500, str(e))
