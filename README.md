@@ -1,5 +1,4 @@
 # Image Segmentation using FastAI - Eye Segmentation
-Eye segmentation using FastAI
 
 Training data: 500 images/masks over 100 epochs.
 
