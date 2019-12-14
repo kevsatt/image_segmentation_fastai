@@ -4,14 +4,12 @@ Eye segmentation using FastAI
 Training data: 500 images/masks over 100 epochs.
 
 Accuracy calculation was done by comparing the number of pixels between the ground truth and the predicted mask (ignoring the background).
-
-def acc_image_seg(input, target):
-    """ accuracy measure disregarding the background pixels """
-    target = target.squeeze(1)
-    mask = target != void_code
-    return (input.argmax(dim=1)[mask] == target[mask]).float().mean()
     
 Accuracy: Achieved 96.7% accuracy.
+
+Experimented using Dice loss function compared with the default categorical cross-entropy loss function to see if accuracy or F1-score would increase with unsuccessful results.
+
+I used F1-score (the balance between precision and recall) as a heuristic measurement to compare models.
 
 <p align="center">
 Image example:
